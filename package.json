@@ -1,0 +1,84 @@
+{
+  "name": "copy-object-name",
+  "displayName": "Copy Object Name",
+  "description": "Copy the name of an object from the navigation tree without system path",
+  "version": "1.0.1",
+  "publisher": "jonnokc",
+  "author": {
+    "name": "Jonathan Adams"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jonnokc/copy-object-name"
+  },
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "copy",
+    "filename",
+    "explorer",
+    "clipboard",
+    "productivity"
+  ],
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#C80000",
+    "theme": "dark"
+  },
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "copy-object-name.copyObjectName",
+        "title": "Copy Object Name"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "copy-object-name.copyObjectName",
+        "key": "cmd+shift+c",
+        "mac": "cmd+shift+c",
+        "when": "explorerViewletVisible && !editorTextFocus"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "copy-object-name.copyObjectName",
+          "group": "clipboard@1"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "copy-object-name.copyObjectName",
+          "group": "clipboard@1",
+          "when": "editorFocus"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint . --ext .ts,.tsx",
+    "pretest": "npm run compile && npm run lint",
+    "test": "vscode-test",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "@types/node": "18.x",
+    "eslint": "^8.47.0",
+    "typescript": "^5.1.6",
+    "vscode-test": "^2.3.4",
+    "vsce": "^2.15.0"
+  }
+} 
